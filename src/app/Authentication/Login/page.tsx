@@ -28,6 +28,8 @@ export default function LoginPage() {
     } catch (e: unknown) {
       if (e instanceof Error) {
         setError(e.message);
+      } else {
+        setError('An unexpected error occurred.');
       }
     }
   };

@@ -120,6 +120,8 @@ export default function ParlourPage() {
         if (e instanceof Error) {
             console.error("Error adding document: ", e);
             setError(`Failed to book appointment: ${e.message || 'Unknown error'}`);
+        } else {
+            setError('An unexpected error occurred.');
         }
     } finally {
       setIsLoading(false);
