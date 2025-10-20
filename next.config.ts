@@ -10,8 +10,8 @@ const nextConfig: NextConfig = {
     unoptimized: true,
     domains: ['raw.githubusercontent.com', 'github.com', "aceternity.com","images.pexels.com"],
   },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/parlour/' : '',
-  basePath: process.env.NODE_ENV === 'production' ? '/parlour' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/' : '',
 };
 
 export default nextConfig;
