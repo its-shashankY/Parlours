@@ -21,8 +21,10 @@ export default function SignupPage() {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       await sendEmailVerification(userCredential.user);
       setSuccess('Account created successfully! A verification email has been sent.');
-    } catch (error: any) {
-      setError(error.message);
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        setError(e.message);
+      }
     }
   };
 
@@ -68,7 +70,7 @@ export default function SignupPage() {
             Sign Up
           </Button>
           <div className='text-center text-sm'>
-            Already have an account?{'​'}
+            Already have an account?{' '}
             <Link href='/Authentication/Login' className='text-white hover:underline'>
               Login
             </Link>

@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { HeroParallax } from "@/components/ui/hero-parallax";
-import { Header } from "@/app/ui/Home/Header"
 
 export default function Section() {
   return <div className="mt-10">

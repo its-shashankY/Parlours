@@ -11,8 +11,9 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export function Header() {
   const navItems = [
@@ -35,6 +36,21 @@ export function Header() {
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const loggedIn = localStorage.getItem('isLoggedIn');
+      setIsLoggedIn(loggedIn === 'true');
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn');
+    setIsLoggedIn(false);
+    router.push('/Authentication/Login');
+  };
 
   return (
     <div className="relative top-0 items-center justify-items-center ">
@@ -44,9 +60,15 @@ export function Header() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <NavbarButton as={Link} href="Authentication/Login" variant="secondary">
-              Login
-            </NavbarButton>
+            {isLoggedIn ? (
+              <NavbarButton onClick={handleLogout} variant="secondary">
+                Logout
+              </NavbarButton>
+            ) : (
+              <NavbarButton as={Link} href="/Authentication/Login" variant="secondary">
+                Login
+              </NavbarButton>
+            )}
             <NavbarButton as={Link} href="/Appointment" variant="primary">
               Book now
             </NavbarButton>
@@ -78,18 +100,31 @@ export function Header() {
               </Link>
             ))}
             <div className="flex w-full flex-col gap-4">
+              {isLoggedIn ? (
+                <NavbarButton
+                  onClick={() => {
+                    handleLogout();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  variant="primary"
+                  className="w-full"
+                >
+                  Logout
+                </NavbarButton>
+              ) : (
+                <NavbarButton
+                  as={Link}
+                  href="/Authentication/Login"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  variant="primary"
+                  className="w-full"
+                >
+                  Login
+                </NavbarButton>
+              )}
               <NavbarButton
                 as={Link}
-                href="/Authentication/Login"
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
-              >
-                Login
-              </NavbarButton>
-              <NavbarButton
-                as={Link}
-                href="/parlour"
+                href="/Appointment"
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="primary"
                 className="w-full"

@@ -24,8 +24,8 @@ const TermsOfServicePage = () => {
           </h2>
           <p className='text-lg text-gray-600 mb-8'>
             All bookings are subject to availability. If you need to cancel or
-            reschedule your appointment, please provide at least 24 hours'
-            notice. Cancellations made with less than 24 hours' notice may be
+            reschedule your appointment, please provide at least 24 hours&apos;
+            notice. Cancellations made with less than 24 hours&apos; notice may be
             subject to a fee.
           </p>
 

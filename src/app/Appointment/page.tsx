@@ -22,9 +22,10 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Calendar } from "@/components/ui/calendar";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { format } from "date-fns";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { db } from "@/lib/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { useRouter } from 'next/navigation';
 
 export default function ParlourPage() {
   const [name, setName] = useState('');
@@ -36,25 +37,102 @@ export default function ParlourPage() {
   const [notes, setNotes] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    const loggedIn = localStorage.getItem('isLoggedIn');
+    if (loggedIn === 'true') {
+      setIsLoggedIn(true);
+    } else {
+      router.push('/Authentication/Login');
+    }
+  }, [router]);
 
   const handleBooking = async () => {
     setError(null);
     setSuccess(null);
+    setIsLoading(true);
+
+    // Validation
+    if (!name.trim()) {
+      setError("Please enter your name");
+      setIsLoading(false);
+      return;
+    }
+    if (!email.trim()) {
+      setError("Please enter your email");
+      setIsLoading(false);
+      return;
+    }
+    if (!phone.trim()) {
+      setError("Please enter your phone number");
+      setIsLoading(false);
+      return;
+    }
+    if (!service) {
+      setError("Please select a service");
+      setIsLoading(false);
+      return;
+    }
+    if (!date) {
+      setError("Please select a date");
+      setIsLoading(false);
+      return;
+    }
+    if (!time) {
+      setError("Please select a time slot");
+      setIsLoading(false);
+      return;
+    }
+
     try {
-      await addDoc(collection(db, "appointments"), {
-        name,
-        email,
-        phone,
-        service,
-        date: date ? format(date, "PPP") : '',
-        time,
-        notes,
-      });
+      const appointmentData = {
+        name: name.trim(),
+        email: email.trim(),
+        phone: phone.trim(),
+        service: service,
+        date: format(date, "PPP"),
+        time: time,
+        notes: notes.trim() || "",
+        createdAt: Timestamp.now(),
+        status: "pending"
+      };
+
+      console.log("Attempting to save:", appointmentData);
+
+      const docRef = await addDoc(collection(db, "appointments"), appointmentData);
+      
+      console.log("Document written with ID: ", docRef.id);
       setSuccess("Appointment booked successfully!");
-    } catch (error: any) {
-      setError(error.message);
+      
+      // Clear form
+      setName('');
+      setEmail('');
+      setPhone('');
+      setService('');
+      setDate(new Date());
+      setTime('');
+      setNotes('');
+      
+    } catch (e: unknown) {
+        if (e instanceof Error) {
+            console.error("Error adding document: ", e);
+            setError(`Failed to book appointment: ${e.message || 'Unknown error'}`);
+        }
+    } finally {
+      setIsLoading(false);
     }
   };
+
+  if (!isLoggedIn) {
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-gray-900">
+        <p className="text-white">Redirecting to login...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-900 p-4 sm:p-6 md:p-8">
@@ -70,17 +148,18 @@ export default function ParlourPage() {
         <CardContent className="grid gap-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="grid gap-3">
-              <Label htmlFor="name">Name</Label>
+              <Label htmlFor="name">Name *</Label>
               <Input
                 id="name"
                 placeholder="Enter your name"
                 className="bg-gray-700 border-gray-600"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                required
               />
             </div>
             <div className="grid gap-3">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">Email *</Label>
               <Input
                 id="email"
                 type="email"
@@ -88,11 +167,12 @@ export default function ParlourPage() {
                 className="bg-gray-700 border-gray-600"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
           </div>
           <div className="grid gap-3">
-            <Label htmlFor="phone">Phone Number</Label>
+            <Label htmlFor="phone">Phone Number *</Label>
             <Input
               id="phone"
               type="tel"
@@ -100,11 +180,12 @@ export default function ParlourPage() {
               className="bg-gray-700 border-gray-600"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
+              required
             />
           </div>
           <div className="grid gap-3">
-            <Label htmlFor="service">Service</Label>
-            <Select onValueChange={setService}>
+            <Label htmlFor="service">Service *</Label>
+            <Select onValueChange={setService} value={service}>
               <SelectTrigger id="service" className="bg-gray-700 border-gray-600">
                 <SelectValue placeholder="Select a service" />
               </SelectTrigger>
@@ -122,7 +203,7 @@ export default function ParlourPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="grid gap-3">
-              <Label htmlFor="date">Appointment Date</Label>
+              <Label htmlFor="date">Appointment Date *</Label>
               <Popover>
                 <PopoverTrigger asChild>
                   <Button
@@ -144,8 +225,8 @@ export default function ParlourPage() {
               </Popover>
             </div>
             <div className="grid gap-3">
-              <Label htmlFor="time">Time Slot</Label>
-              <Select onValueChange={setTime}>
+              <Label htmlFor="time">Time Slot *</Label>
+              <Select onValueChange={setTime} value={time}>
                 <SelectTrigger id="time" className="bg-gray-700 border-gray-600">
                   <SelectValue placeholder="Select a time" />
                 </SelectTrigger>
@@ -176,8 +257,12 @@ export default function ParlourPage() {
           {success && <p className="text-green-500 text-sm">{success}</p>}
         </CardContent>
         <CardFooter>
-          <Button onClick={handleBooking} className="w-full bg-[#4f46e5] hover:bg-[#4338ca] text-white text-lg font-md tracking-tighter">
-            Book Appointment
+          <Button 
+            onClick={handleBooking} 
+            disabled={isLoading}
+            className="w-full bg-[#4f46e5] hover:bg-[#4338ca] text-white text-lg font-md tracking-tighter disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {isLoading ? "Booking..." : "Book Appointment"}
           </Button>
         </CardFooter>
       </Card>

@@ -22,7 +22,6 @@ interface FooterColumnProps {
 
 interface FooterProps {
   logo?: ReactNode;
-  name?: string;
   columns?: FooterColumnProps[];
   copyright?: string;
   policies?: FooterLink[];
@@ -31,7 +30,6 @@ interface FooterProps {
 }
 
 export default function FooterSection({
-  name = "Launch UI",
   columns = [
     {
       title: "Product",

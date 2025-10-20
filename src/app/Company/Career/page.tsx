@@ -11,7 +11,7 @@ const CareerPage = () => {
       <header className='bg-gradient-to-r from-pink-500 to-purple-600 text-white text-center py-20'>
         <h1 className='text-5xl font-bold tracking-tight'>Join Our Team</h1>
         <p className='mt-4 text-lg'>
-          We're looking for passionate individuals to join our mission.
+          We&apos;re looking for passionate individuals to join our mission.
         </p>
       </header>
 

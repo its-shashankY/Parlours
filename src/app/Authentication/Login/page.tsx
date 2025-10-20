@@ -22,10 +22,13 @@ export default function LoginPage() {
         setError('Please verify your email before logging in.');
         return;
       }
+      localStorage.setItem('isLoggedIn', 'true');
       // Redirect to a protected route or dashboard
       window.location.href = '/';
-    } catch (error: any) {
-      setError(error.message);
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        setError(e.message);
+      }
     }
   };
 
@@ -75,7 +78,7 @@ export default function LoginPage() {
             </Link>
           </div>
           <div className='text-center text-sm text-white'>
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <Link href='/Authentication/Signup' className='text-[#93c5fd] hover:underline'>
               Sign up
             </Link>

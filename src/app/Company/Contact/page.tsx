@@ -12,7 +12,7 @@ const ContactPage = () => {
       <header className='bg-gradient-to-r from-pink-500 to-purple-600 text-white text-center py-20'>
         <h1 className='text-5xl font-bold tracking-tighter'>Contact Us</h1>
         <p className='mt-4 text-lg'>
-          We'd love to hear from you! Reach out with any questions or to book
+          We&apos;d love to hear from you! Reach out with any questions or to book
           an appointment.
         </p>
       </header>
