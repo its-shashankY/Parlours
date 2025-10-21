@@ -27,7 +27,7 @@ const AboutPage = () => {
             <Card className="transform hover:scale-105 transition-transform duration-300">
               <CardHeader className="text-center">
                 <Avatar className="w-24 h-24 mx-auto mb-4">
-                  <AvatarImage src="https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg" />
+                  <AvatarImage src="https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1" />
                   <AvatarFallback>JD</AvatarFallback>
                 </Avatar>
                 <CardTitle className="text-2xl font-bold">Jane Doe</CardTitle>
@@ -42,7 +42,7 @@ const AboutPage = () => {
             <Card className="transform hover:scale-105 transition-transform duration-300">
               <CardHeader className="text-center">
                 <Avatar className="w-24 h-24 mx-auto mb-4">
-                  <AvatarImage src="https://images.pexels.com/photos/3755440/pexels-photo-3755440.jpeg" />
+                  <AvatarImage src="https://images.pexels.com/photos/3755440/pexels-photo-3755440.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1" />
                   <AvatarFallback>ES</AvatarFallback>
                 </Avatar>
                 <CardTitle className="text-2xl font-bold">Emily Smith</CardTitle>
@@ -57,7 +57,7 @@ const AboutPage = () => {
             <Card className="transform hover:scale-105 transition-transform duration-300">
               <CardHeader className="text-center">
                 <Avatar className="w-24 h-24 mx-auto mb-4">
-                  <AvatarImage src="https://images.pexels.com/photos/3772509/pexels-photo-3772509.jpeg" />
+                  <AvatarImage src="https://images.pexels.com/photos/3772509/pexels-photo-3772509.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1" />
                   <AvatarFallback>MB</AvatarFallback>
                 </Avatar>
                 <CardTitle className="text-2xl font-bold">Michael Brown</CardTitle>

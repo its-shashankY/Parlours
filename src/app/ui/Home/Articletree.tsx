@@ -33,7 +33,7 @@ export default function TestimonialsGrid() {
 const Skeleton = () => (
   <div className="relative flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-pink-100 dark:from-neutral-900 dark:to-neutral-800 to-rose-50 overflow-hidden">
      <Image
-        src="https://images.pexels.com/photos/15723780/pexels-photo-15723780.jpeg?_gl=1*1b61q19*_ga*MTYzNDkxOTMyNS4xNzM2MjQ1Nzk0*_ga_8JE65Q40S6*czE3NTc0MzYwNzckbzExJGcxJHQxNzU3NDM2Mjk2JGozOCRsMCRoMA.."
+        src="https://images.pexels.com/photos/15723780/pexels-photo-15723780.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1"
         alt="A background image for a testimonial card showing a serene beauty parlour setting."
         layout="fill"
         objectFit="cover"
