@@ -12,63 +12,63 @@ export const products = [
     title: "Facial",
     link: "/Appointment",
     thumbnail:
-      "https://images.pexels.com/photos/3212179/pexels-photo-3212179.jpeg?_gl=1*16xomg6*_ga*MTYzNDkxOTMyNS4xNzM2MjQ1Nzk0*_ga_8JE65Q40S6*czE3NTc0MjY1MjIkbzkkZzEkdDE3NTc0Mjc0MTMkajE0JGwwJGgwg",
+      "https://images.pexels.com/photos/3212179/pexels-photo-3212179.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
   },
   {
     title: "Marriage Makeup",
     link: "/Appointment",
     thumbnail:
-      "https://images.pexels.com/photos/1162983/pexels-photo-1162983.jpeg?_gl=1*penw1t*_ga*MTYzNDkxOTMyNS4xNzM2MjQ1Nzk0*_ga_8JE65Q40S6*czE3NTc0MjY1MjIkbzkkZzEkdDE3NTc0MjcxODIkajIwJGwwJGgw",
+      "https://images.pexels.com/photos/1162983/pexels-photo-1162983.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
   },
   {
     title: "Nail Fashion",
     link: "/Appointment",
     thumbnail:
-      "https://images.pexels.com/photos/6135681/pexels-photo-6135681.jpeg?_gl=1*82ytw7*_ga*MTYzNDkxOTMyNS4xNzM2MjQ1Nzk0*_ga_8JE65Q40S6*czE3NTc0MjY1MjIkbzkkZzEkdDE3NTc0MjcwMTIkajUyJGwwJGgw",
+      "https://images.pexels.com/photos/6135681/pexels-photo-6135681.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
   },
 
   {
     title: "UP Fashion View",
     link: "/Appointment",
     thumbnail:
-      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?_gl=1*1qdfvwv*_ga*MTYzNDkxOTMyNS4xNzM2MjQ1Nzk0*_ga_8JE65Q40S6*czE3NTc0MjY1MjIkbzkkZzEkdDE3NTc0MjY1NTQkajI4JGwwJGgw",
+      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
   },
   {
     title: "New Fashion View",
     link: "/Appointment",
     thumbnail:
-      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?_gl=1*1qdfvwv*_ga*MTYzNDkxOTMyNS4xNzM2MjQ1Nzk0*_ga_8JE65Q40S6*czE3NTc0MjY1MjIkbzkkZzEkdDE3NTc0MjY1NTQkajI4JGwwJGgw",
+      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
   },
   {
     title: "For Fashion View",
     link: "/Appointment",
     thumbnail:
-      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?_gl=1*1qdfvwv*_ga*MTYzNDkxOTMyNS4xNzM2MjQ1Nzk0*_ga_8JE65Q40S6*czE3NTc0MjY1MjIkbzkkZzEkdDE3NTc0MjY1NTQkajI4JGwwJGgw",
+      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
   },
 
   {
     title: "For Shopping",
     link: "/Appointment",
     thumbnail:
-      "https://images.pexels.com/photos/135620/pexels-photo-135620.jpeg?_gl=1*3bv2gk*_ga*MTYzNDkxOTMyNS4xNzM2MjQ1Nzk0*_ga_8JE65Q40S6*czE3NTc0MjY1MjIkbzkkZzEkdDE3NTc0MjY4MzUkajI1JGwwJGgw",
+      "https://images.pexels.com/photos/135620/pexels-photo-135620.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
   },
   {
     title: "Fashion View",
     link: "/Appointment",
     thumbnail:
-      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?_gl=1*1qdfvwv*_ga*MTYzNDkxOTMyNS4xNzM2MjQ1Nzk0*_ga_8JE65Q40S6*czE3NTc0MjY1MjIkbzkkZzEkdDE3NTc0MjY1NTQkajI4JGwwJGgw",
+      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
   },
   {
     title: "Shopping",
     link: "/Appointment",
     thumbnail:
-      "https://images.pexels.com/photos/135620/pexels-photo-135620.jpeg?_gl=1*3bv2gk*_ga*MTYzNDkxOTMyNS4xNzM2MjQ1Nzk0*_ga_8JE65Q40S6*czE3NTc0MjY1MjIkbzkkZzEkdDE3NTc0MjY4MzUkajI1JGwwJGgw",
+      "https://images.pexels.com/photos/135620/pexels-photo-135620.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
   },
   {
     title: "Beauty Parlour",
     link: "/Appointment",
     thumbnail:
-      "https://images.pexels.com/photos/7195812/pexels-photo-7195812.jpeg?_gl=1*bk0d5o*_ga*MTYzNDkxOTMyNS4xNzM2MjQ1Nzk0*_ga_8JE65Q40S6*czE3NTc0MjY1MjIkbzkkZzEkdDE3NTc0MjY5MzkkajIxJGwwJGgw",
+      "https://images.pexels.com/photos/7195812/pexels-photo-7195812.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1",
   },
 
   {
